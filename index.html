@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brico Maroc - Votre Expert en Bricolage au Maroc</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #e75f0c;
+            --primary-dark: #c94c00;
+            --dark: #111;
+            --dark-light: #222;
+            --light: #fff;
+            --gray: #666;
+            --gray-light: #f4f4f4;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: #fafafa;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--dark);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .header-top {
+            background: var(--primary);
+            padding: 8px 0;
+            font-size: 14px;
+            color: white;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-main {
+            padding: 15px 0;
+        }
+
+        .header-main .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: var(--light);
+            font-size: 28px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .logo i {
+            font-size: 36px;
+            margin-right: 12px;
+            color: var(--primary);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .contact-header {
+            display: flex;
+            gap: 20px;
+        }
+
+        .contact-header a {
+            color: var(--light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .contact-header a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Slider */
+        .hero-slider {
+            margin-top: 100px;
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide-content {
+            flex: 1;
+            padding: 80px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .slide-image {
+            flex: 1;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(17,17,17,0.9) 0%, rgba(17,17,17,0) 100%);
+        }
+
+        .slide h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .slide p {
+            font-size: 20px;
+            color: #ddd;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .slider-nav {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 3;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .slider-dot.active {
+            background: var(--primary);
+            transform: scale(1.3);
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 80px 0;
+            background: var(--gray-light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-card i {
+            font-size: 48px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .service-card p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* Categories Section */
+        .categories-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .categories-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            background: var(--dark-light);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .category-btn.active,
+        .category-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .product-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--primary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-size: 18px;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .product-info p {
+            color: var(--gray);
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .product-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .product-btn {
+            width: 100%;
+            background: var(--dark);
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .product-btn:hover {
+            background: var(--primary);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
+            color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .feature-item i {
+            font-size: 40px;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .feature-content h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .feature-content p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            background: var(--gray-light);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .contact-item i {
+            font-size: 24px;
+            color: var(--primary);
+            width: 40px;
+        }
+
+        .contact-item h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .contact-item p {
+            color: var(--gray);
+        }
+
+        .contact-form {
+            background: var(--dark);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-form h3 {
+            color: white;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05);
+            color: white;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .footer-section p {
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #ccc;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-main .container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .slide h1 {
+                font-size: 32px;
+            }
+
+            .slide p {
+                font-size: 16px;
+            }
+
+            .slide-content {
+                padding: 40px;
+            }
+
+            .hero-slider {
+                height: 500px;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div><i class="fas fa-phone"></i> 05 22 91 44 93</div>
+                <div><i class="fas fa-envelope"></i> nassimbrico@gmail.com</div>
+                <div><i class="fas fa-truck"></i> Livraison partout au Maroc</div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container">
+                <a href="#" class="logo">
+                    <i class="fas fa-tools"></i>
+                    BRICO MAROC
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#categories">Produits</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="contact-header">
+                    <a href="https://wa.me/212775674294" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Slider -->
+    <section class="hero-slider" id="accueil">
+        <div class="slide active">
+            <div class="slide-content">
+                <h1>Le Meilleur Service de Bricolage au Maroc</h1>
+                <p>Plus de 15 ans d'expertise au service des professionnels et particuliers</p>
+                <a href="#categories" class="btn-primary">Découvrir nos produits</a>
+            </div>
+            <div class="slide-image">
+                <div class="slide-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1580894908361-62da8c10d5d9?auto=format&fit=crop&w=800&q=80" alt="Bricolage professionnel">
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h1>Livraison Rapide Partout au Maroc</h1>
+                <p>De Tanger à Dakhla, nous livrons en 24-48h avec notre flotte de véhicules spécialisés</p>
+                <a href="#contact" class="btn-primary">Nous contacter</a>
+            </div>
+            <div class="slide-image">
+                <div class="slide-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1599707610416-70f64698c03b?auto=format&fit=crop&w=800&q=80" alt="Livraison">
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h1>Fiabilité & Qualité Garanties</h1>
+                <p>Produits certifiés, garanties satisfait ou remboursé, plus de 10 000 clients satisfaits</p>
+                <a href="#services" class="btn-primary">Nos engagements</a>
+            </div>
+            <div class="slide-image">
+                <div class="slide-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?auto=format&fit=crop&w=800&q=80" alt="Qualité">
+            </div>
+        </div>
+
+        <div class="slider-nav">
+            <div class="slider-dot active"></div>
+            <div class="slider-dot"></div>
+            <div class="slider-dot"></div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nos Services Premium</h2>
+                <p>Une gamme complète de services pour accompagner tous vos projets de bricolage</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-truck"></i>
+                    <h3>Livraison Express</h3>
+                    <p>Livraison rapide dans tout le Maroc en 24-48h. Possibilité de livraison le jour même pour Casablanca et Rabat.</p>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Garantie Totale</h3>
+                    <p>Tous nos produits bénéficient d'une garantie fabricant de 2 à 5 ans. Satisfait ou remboursé sous 30 jours.</p>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>Support Technique</h3>
+                    <p>Notre équipe d'experts vous conseille 7j/7 de 8h à 20h. Support téléphonique et vidéo pour vos installations.</p>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Qualité Certifiée</h3>
+                    <p>Produits aux normes européennes et marocaines. Certifications ISO 9001 et CE pour toute notre gamme.</p>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-credit-card"></i>
+                    <h3>Paiement Sécurisé</h3>
+                    <p>Paiement à la livraison, virement bancaire, espèces ou CB. Pas de frais cachés, transparence totale.</p>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Service Pro</h3>
+                    <p>Comptes professionnels avec tarifs préférentiels, devis personnalisés et conseiller dédié pour les artisans.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nos Catégories de Produits</h2>
+                <p>Plus de 5000 références disponibles pour tous vos projets</p>
+            </div>
+
+            <div class="categories-nav">
+                <button class="category-btn active" data-category="sanitaire">Sanitaire</button>
+                <button class="category-btn" data-category="electricite">Électricité</button>
+                <button class="category-btn" data-category="outillage">Outillage</button>
+                <button class="category-btn" data-category="epi">EPI</button>
+                <button class="category-btn" data-category="peinture">Peinture</button>
+                <button class="category-btn" data-category="quincaillerie">Quincaillerie</button>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header" style="color: white;">
+                <h2>Pourquoi Choisir Brico Maroc ?</h2>
+                <p style="color: #ccc;">L'excellence au service du bricolage marocain</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-award"></i>
+                    <div class="feature-content">
+                        <h3>Expertise 15+ ans</h3>
+                        <p>Une équipe de professionnels expérimentés vous conseille pour chaque projet et vous accompagne de A à Z.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <div class="feature-content">
+                        <h3>Couverture Nationale</h3>
+                        <p>Présence dans 12 grandes villes du Maroc avec des entrepôts stratégiques pour une livraison optimale.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <i class="fas fa-handshake"></i>
+                    <div class="feature-content">
+                        <h3>Partenaires de Confiance</h3>
+                        <p>Nous travaillons avec les meilleures marques mondiales : Bosch, Makita, Schneider, Leroy Merlin...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contactez-Nous</h2>
+                <p>Nous sommes à votre disposition pour toutes vos demandes</p>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Adresse</h3>
+                            <p>223, lot Nassim, Sidi Maarouf<br>Casablanca – Maroc</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Téléphone</h3>
+                            <p>05 22 91 44 93<br>
+                            <a href="tel:0522914493">Appeler maintenant</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h3>WhatsApp</h3>
+                            <p>07 75 67 42 94<br>
+                            <a href="https://wa.me/212775674294">Envoyer un message</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>nassimbrico@gmail.com<br>
+                            <a href="mailto:nassimbrico@gmail.com">Envoyer un email</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Horaires</h3>
+                            <p>Lun - Ven: 8h00 - 19h00<br>
+                            Sam: 9h00 - 18h00<br>
+                            Dim: Fermé</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Envoyez-nous un message</h3>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Votre nom complet" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Votre email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Votre téléphone" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="5" placeholder="Votre message..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" style="width: 100%;">Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Brico Maroc</h3>
+                    <p>Votre partenaire de confiance pour tous vos projets de bricolage au Maroc. Qualité, service et prix compétitifs garantis.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Liens Rapides</h3>
+                    <ul>
+                        <li><a href="#categories">Nos Produits</a></li>
+                        <li><a href="#services">Nos Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Mentions Légales</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Catégories</h3>
+                    <ul>
+                        <li><a href="#">Sanitaire</a></li>
+                        <li><a href="#">Électricité</a></li>
+                        <li><a href="#">Outillage</a></li>
+                        <li><a href="#">EPI</a></li>
+                        <li><a href="#">Peinture</a></li>
+                        <li><a href="#">Quincaillerie</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> 05 22 91 44 93</li>
+                        <li><i class="fab fa-whatsapp"></i> 07 75 67 42 94</li>
+                        <li><i class="fas fa-envelope"></i> nassimbrico@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Casablanca, Maroc</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Brico Maroc. Tous droits réservés. Développé avec ❤️ au Maroc</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Slider functionality
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Auto-advance slider
+        setInterval(nextSlide, 5000);
+
+        // Manual slide control
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                showSlide(currentSlide);
+            });
+        });
+
+        // Products data - MODIFIEZ ICI VOS PRODUITS
+        const products = {
+            sanitaire: [
+                {
+                    title: "Robet Mitigeur Deluxe",
+                    description: "Robet chromé haute qualité avec tête pivotante 360°, garantie 5 ans",
+                    price: "890 MAD",
+                    image: "https://images.unsplash.com/photo-1584622650111-993a426fb70a?auto=format&fit=crop&w=400&q=80",
+                    badge: "Best-seller"
+                },
+                {
+                    title: "WC Suspendu Design",
+                    description: "WC suspendu avec chasse d'eau intégrée, système anti-odeur",
+                    price: "1250 MAD",
+                    image: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?auto=format&fit=crop&w=400&q=80"
+                },
+                {
+                    title: "Douette Rain Shower",
+                    description: "Douche de pluie 300mm avec LED intégrée, chromé",
+                    price: "1590 MAD",
+                    image: "https://images.unsplash.com/photo-1584622650111-993a426fb70a?auto=format&fit=crop&w=400&q=80",
+                    badge: "Nouveau"
+                },
+                {
+                    title: "Meuble Lavabo 120cm",
+                    description: "Meuble double vasque avec miroir LED et rangements",
+                    price: "3200 MAD",
+                    image: "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=400&q=80"
+                }
+            ],
+            electricite: [
+                {
+                    title: "Tableau Électrique 12 Modules",
+                    description: "Tableau Schneider avec protection différentielle et disjoncteurs",
+                    price: "750 MAD",
+                    image: "https://images.unsplash.com/photo-1587472985265-ff530e058675?auto=format&fit=crop&w=400&q=80",
+                    badge: "Pro"
+                },
+                {
+                    title: "Pack Spot LED 3W x6",
+                    description: "Spots orientables blanc chaud 3000K avec transformateur",
+                    price: "420 MAD",
+                    image: "https://images.unsplash.com/photo-1587472985265-ff530e058675?auto=format&fit=crop&w=400&q=80"
+                },
+                {
+                    title: "Prise USB Murale",
+                    description: "Double prise avec 2 ports USB 2.1A, blanc",
+                    price: "120 MAD",
+                    image: "https://images.unsplash.com/photo-1582861838389-653ef3905de1?auto=format&fit=crop&w=400&q=80",
+                    badge: "Promo"
+                },
+                {
+                    title: "Câble 3G1.5 100m",
+                    description: "Câble électrique rigide pour installation domestique",
+                    price: "280 MAD",
+                    image: "https://images.unsplash.com/photo-1587472985265-ff530e058675?auto=format&fit=crop&w=400&q=80"
+                }
+            ],
+            outillage: [
+                {
+                    title: "Perceuse Sans Fil 18V",
+                    description: "Makita 18V avec 2 batteries et valise, 3 ans de garantie",
+                    price: "2100 MAD",
+                    image: "https://images.unsplash.com/photo-1599444717625-433c00c6a919?auto=format&fit=crop&w=400&q=80",
+                    badge: "Best-seller"
+                },
+                {
+                    title: "Meche Bois 12pcs",
+                    description: "Jeau complet de mèches HSS de 3 à 10mm",
+                    price: "150 MAD",
+                    image: "https://images.unsplash.com/photo-1604414808347-b1b9b25c5099?auto=format&fit=crop&w=400&q=80"
+                },
+                {
+                    title: "Scie Circulaire 190mm",
+                    description: "Scie professionnelle avec variateur de vitesse",
+                    price: "1350 MAD",
+                    image: "https://images.unsplash.com/photo-1604414808347-b1b9b25c5099?auto=format&fit=crop&w=400&q=80",
+                    badge: "Pro"
+                },
+                {
+                    title: "Outils de Serrage 25pcs",
+                    description: "Complete avec clés à pipe et mixtes",
+                    price: "580 MAD",
+                    image: "https://images.unsplash.com/photo-1604414808347-b1b9b25c5099?auto=format&fit=crop&w=400&q=80"
+                }
+            ],
+            epi: [
+                {
+                    title: "Casque de Protection",
+                    description: "Casque jaune avec jugulaire réglable, norme EN397",
+                    price: "85 MAD",
+                    image: "https://images.unsplash.com/photo-1602762077121-066b2bb8696d?auto=format&fit=crop&w=400&q=80"
+                },
+                {
+                    title: "Gants de Sécurité Nitrile",
+                    description: "Boîte de 100 gants résistants aux coupures",
+                    price: "220 MAD",
+                    image: "https://images.unsplash.com/photo-1602762077121-066b2bb8696d?auto=format&fit=crop&w=400&q=80",
+                    badge: "Essentiel"
+                },
+                {
+                    title: "Lunettes Anti-projection",
+                    description: "Protection oculaire avec traitement anti-buée",
+                    price: "45 MAD",
+                    image: "https://images.unsplash.com/photo-1602762077121-066b2bb8696d?auto=format&fit=crop&w=400&q=80"
+                },
+                {
+                    title: "Chaussures de Sécurité S3",
+                    description: "Bottes avec embout acier et semelle anti-dérapante",
+                    price: "320 MAD",
+                    image: "https://images.unsplash.com/photo-1602762077121-066b2bb8696d?auto=format&fit=crop&w=400&q=80",
+                    badge: "Pro"
+                }
+            ],
+            peinture: [
+                {
+                    title: "Peinture Acrylique 10L",
+                    description: "Blanc mat, intérieur, haute qualité, séchage rapide",
+                    price: "280 MAD",
+                    image: "https://images.unsplash.com/photo-1604414808347-b1b9b25c5099?auto=format&fit=crop&w=400&q=80",
+                    badge: "Promo"
+                },
+                {
+                    title: "Rouleau Peinture Pro",
+                    description: "Set complet avec manche, pour surfaces lisses",
+                    price: "65 MAD",
+                    image: "https://images.unsplash.com/photo-1604414808347-b1b9b25c5099?auto=format&fit=crop&w=400&q=80"
+                },
+                {
+                    title: "Ruban de Masquage 50m",
+                    description: "Rouleau adhésif de qualité professionnelle",
+                    price: "28 MAD",
+                    image: "https://images.unsplash.com/photo-1604414808347-b1b9b25c5099?auto=format&fit=crop&w=400&q=80"
+                },
+                {
+                    title: "Sous-couche Acrylique 5L",
+                    description: "Fixateur universel pour tous supports",
+                    price: "180 MAD",
+                    image: "https://images.unsplash.com/photo-1604414808347-b1b9b25c5099?auto=format&fit=crop&w=400&q=80"
+                }
+            ],
+            quincaillerie: [
+                {
+                    title: "Visserie Complète 300pcs",
+                    description: "Boîte assortie de vis et chevilles",
+                    price: "150 MAD",
+                    image: "https://images.unsplash.com/photo-1604414808347-b1b9b25c5099?auto=format&fit=crop&w=400&q=80",
+                    badge: "Essentiel"
+                },
+                {
+                    title: "Serrure 3 Points",
+                    description: "Serrure de sécurité pour porte d'entrée",
+                    price: "580 MAD",
+                    image: "https://images.unsplash.com/photo-1604414808347-b1b9b25c5099?auto=format&fit=crop&w=400&q=80"
+                },
+                {
+                    title: "Gonds Porte 4pcs",
+                    description: "Gonds renforcés 100mm avec visserie",
+                    price: "45 MAD",
+                    image: "https://images.unsplash.com/photo-1604414808347-b1b9b25c5099?auto=format&fit=crop&w=400&q=80"
+                },
+                {
+                    title: "Ferme-porte Hydraulique",
+                    description: "Pour porte jusqu'à 80kg, finition aluminium",
+                    price: "220 MAD",
+                    image: "https://images.unsplash.com/photo-1604414808347-b1b9b25c5099?auto=format&fit=crop&w=400&q=80"
+                }
+            ]
+        };
+
+        // Display products
+        function displayProducts(category) {
+            const grid = document.getElementById('productsGrid');
+            const categoryProducts = products[category] || [];
+            
+            grid.innerHTML = categoryProducts.map(product => `
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.title}">
+                        ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
+                    </div>
+                    <div class="product-info">
+                        <h3>${product.title}</h3>
+                        <p>${product.description}</p>
+                        <div class="product-price">${product.price}</div>
+                        <button class="product-btn">Ajouter au panier</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Category navigation
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                displayProducts(btn.dataset.category);
+            });
+        });
+
+        // Initial display
+        displayProducts('sanitaire');
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('.contact-form form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Merci pour votre message ! Nous vous contacterons dans les plus brefs délais.');
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>
