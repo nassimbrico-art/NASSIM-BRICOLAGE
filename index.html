@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brico Maroc - Votre Expert en Bricolage au Maroc</title>
+    <title>NASSIM BRICOLAGE - Votre Expert en Bricolage au Maroc</title>
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -369,6 +369,10 @@
             position: relative;
             height: 200px;
             overflow: hidden;
+            background: #f8f8f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .product-image img {
@@ -683,7 +687,7 @@
             <div class="container">
                 <a href="#" class="logo">
                     <i class="fas fa-tools"></i>
-                    BRICO MAROC
+                    NASSIM BRICOLAGE
                 </a>
                 <nav>
                     <ul>
@@ -712,7 +716,7 @@
             </div>
             <div class="slide-image">
                 <div class="slide-overlay"></div>
-                <img src="https://images.unsplash.com/photo-1580894908361-62da8c10d5d9?auto=format&fit=crop&w=800&q=80" alt="Bricolage professionnel">
+                <img src="image/bricoo.jpeg" alt="Bricolage professionnel">
             </div>
         </div>
 
@@ -724,7 +728,7 @@
             </div>
             <div class="slide-image">
                 <div class="slide-overlay"></div>
-                <img src="https://images.unsplash.com/photo-1599707610416-70f64698c03b?auto=format&fit=crop&w=800&q=80" alt="Livraison">
+                <img src="https://via.placeholder.com/800x600/e75f0c/ffffff?text=Livraison+Express" alt="Livraison">
             </div>
         </div>
 
@@ -736,7 +740,7 @@
             </div>
             <div class="slide-image">
                 <div class="slide-overlay"></div>
-                <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?auto=format&fit=crop&w=800&q=80" alt="Qualité">
+                <img src="https://via.placeholder.com/800x600/e75f0c/ffffff?text=Qualité+Garantie" alt="Qualité">
             </div>
         </div>
 
@@ -822,7 +826,7 @@
     <section class="features-section">
         <div class="container">
             <div class="section-header" style="color: white;">
-                <h2>Pourquoi Choisir Brico Maroc ?</h2>
+                <h2>Pourquoi Choisir NASSIM BRICOLAGE ?</h2>
                 <p style="color: #ccc;">L'excellence au service du bricolage marocain</p>
             </div>
 
@@ -937,7 +941,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Brico Maroc</h3>
+                    <h3>NASSIM BRICOLAGE</h3>
                     <p>Votre partenaire de confiance pour tous vos projets de bricolage au Maroc. Qualité, service et prix compétitifs garantis.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -981,7 +985,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2026 Brico Maroc. Tous droits réservés. Développé avec ❤️ au Maroc</p>
+                <p>&copy; 2026 NASSIM BRICOLAGE. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
@@ -1016,34 +1020,34 @@
             });
         });
 
-        // Products data - MODIFIEZ ICI VOS PRODUITS
+        // Products data avec placeholders pour éviter les problèmes d'images externes
         const products = {
             sanitaire: [
                 {
-                    title: "Robet Mitigeur Deluxe",
-                    description: "Robet chromé haute qualité avec tête pivotante 360°, garantie 5 ans",
+                    title: "Robinets Mitigeur Deluxe",
+                    description: "Mitigeur chromé haute qualité avec tête pivotante 360°, garantie 5 ans",
                     price: "890 MAD",
-                    image: "https://images.unsplash.com/photo-1584622650111-993a426fb70a?auto=format&fit=crop&w=400&q=80",
+                    image: "images/robinet-chrome.jpg",
                     badge: "Best-seller"
                 },
                 {
                     title: "WC Suspendu Design",
                     description: "WC suspendu avec chasse d'eau intégrée, système anti-odeur",
                     price: "1250 MAD",
-                    image: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?auto=format&fit=crop&w=400&q=80"
+                    image: "images/wc suspendu.jpg"
                 },
                 {
-                    title: "Douette Rain Shower",
+                    title: "Douche Rain Shower",
                     description: "Douche de pluie 300mm avec LED intégrée, chromé",
                     price: "1590 MAD",
-                    image: "https://images.unsplash.com/photo-1584622650111-993a426fb70a?auto=format&fit=crop&w=400&q=80",
+                    image: "images/douche-rain.jpg",
                     badge: "Nouveau"
                 },
                 {
                     title: "Meuble Lavabo 120cm",
                     description: "Meuble double vasque avec miroir LED et rangements",
                     price: "3200 MAD",
-                    image: "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=400&q=80"
+                    image: "images/meuble-lavabo120.jpg"
                 }
             ],
             electricite: [
@@ -1051,27 +1055,27 @@
                     title: "Tableau Électrique 12 Modules",
                     description: "Tableau Schneider avec protection différentielle et disjoncteurs",
                     price: "750 MAD",
-                    image: "https://images.unsplash.com/photo-1587472985265-ff530e058675?auto=format&fit=crop&w=400&q=80",
+                    image: "images/tableau-12.jpg",
                     badge: "Pro"
                 },
                 {
                     title: "Pack Spot LED 3W x6",
                     description: "Spots orientables blanc chaud 3000K avec transformateur",
                     price: "420 MAD",
-                    image: "https://images.unsplash.com/photo-1587472985265-ff530e058675?auto=format&fit=crop&w=400&q=80"
+                    image: "images/spot-led.jpg"
                 },
                 {
                     title: "Prise USB Murale",
                     description: "Double prise avec 2 ports USB 2.1A, blanc",
                     price: "120 MAD",
-                    image: "https://images.unsplash.com/photo-1582861838389-653ef3905de1?auto=format&fit=crop&w=400&q=80",
+                    image: "images/portusb.jpg",
                     badge: "Promo"
                 },
                 {
-                    title: "Câble 3G1.5 100m",
-                    description: "Câble électrique rigide pour installation domestique",
+                    title: "Câble Électrique 100m",
+                    description: "Câble électrique rigide 3G1.5 pour installation domestique",
                     price: "280 MAD",
-                    image: "https://images.unsplash.com/photo-1587472985265-ff530e058675?auto=format&fit=crop&w=400&q=80"
+                    image: "images/cable100m.jpeg"
                 }
             ],
             outillage: [
@@ -1079,27 +1083,27 @@
                     title: "Perceuse Sans Fil 18V",
                     description: "Makita 18V avec 2 batteries et valise, 3 ans de garantie",
                     price: "2100 MAD",
-                    image: "https://images.unsplash.com/photo-1599444717625-433c00c6a919?auto=format&fit=crop&w=400&q=80",
+                    image: "images/perceuse.jpg",
                     badge: "Best-seller"
                 },
                 {
-                    title: "Meche Bois 12pcs",
+                    title: "Mèches Bois 12pcs",
                     description: "Jeau complet de mèches HSS de 3 à 10mm",
                     price: "150 MAD",
-                    image: "https://images.unsplash.com/photo-1604414808347-b1b9b25c5099?auto=format&fit=crop&w=400&q=80"
+                    image: "images/meche.jpg"
                 },
                 {
                     title: "Scie Circulaire 190mm",
                     description: "Scie professionnelle avec variateur de vitesse",
                     price: "1350 MAD",
-                    image: "https://images.unsplash.com/photo-1604414808347-b1b9b25c5099?auto=format&fit=crop&w=400&q=80",
+                    image: "images/scie.jpg",
                     badge: "Pro"
                 },
                 {
                     title: "Outils de Serrage 25pcs",
                     description: "Complete avec clés à pipe et mixtes",
                     price: "580 MAD",
-                    image: "https://images.unsplash.com/photo-1604414808347-b1b9b25c5099?auto=format&fit=crop&w=400&q=80"
+                    image: "images/clepipe.jpg"
                 }
             ],
             epi: [
@@ -1107,81 +1111,81 @@
                     title: "Casque de Protection",
                     description: "Casque jaune avec jugulaire réglable, norme EN397",
                     price: "85 MAD",
-                    image: "https://images.unsplash.com/photo-1602762077121-066b2bb8696d?auto=format&fit=crop&w=400&q=80"
+                    image: "images/casque.jpg"
                 },
                 {
                     title: "Gants de Sécurité Nitrile",
                     description: "Boîte de 100 gants résistants aux coupures",
                     price: "220 MAD",
-                    image: "https://images.unsplash.com/photo-1602762077121-066b2bb8696d?auto=format&fit=crop&w=400&q=80",
+                    image: "images/gants.jpg",
                     badge: "Essentiel"
                 },
                 {
                     title: "Lunettes Anti-projection",
                     description: "Protection oculaire avec traitement anti-buée",
                     price: "45 MAD",
-                    image: "https://images.unsplash.com/photo-1602762077121-066b2bb8696d?auto=format&fit=crop&w=400&q=80"
+                    image: "images/lunette.jpg"
                 },
                 {
                     title: "Chaussures de Sécurité S3",
                     description: "Bottes avec embout acier et semelle anti-dérapante",
                     price: "320 MAD",
-                    image: "https://images.unsplash.com/photo-1602762077121-066b2bb8696d?auto=format&fit=crop&w=400&q=80",
+                    image: "images/chaussure.jpeg",
                     badge: "Pro"
                 }
             ],
             peinture: [
                 {
-                    title: "Peinture Acrylique 10L",
+                    title: "Peinture Vinylique",
                     description: "Blanc mat, intérieur, haute qualité, séchage rapide",
-                    price: "280 MAD",
-                    image: "https://images.unsplash.com/photo-1604414808347-b1b9b25c5099?auto=format&fit=crop&w=400&q=80",
+                    price: "340 MAD",
+                    image: "images/itryp.jpg",
                     badge: "Promo"
                 },
                 {
                     title: "Rouleau Peinture Pro",
                     description: "Set complet avec manche, pour surfaces lisses",
                     price: "65 MAD",
-                    image: "https://images.unsplash.com/photo-1604414808347-b1b9b25c5099?auto=format&fit=crop&w=400&q=80"
+                    image: "images/major.jpg"
                 },
                 {
-                    title: "Ruban de Masquage 50m",
+                    title: "Ruban de Marquage 50m",
                     description: "Rouleau adhésif de qualité professionnelle",
-                    price: "28 MAD",
-                    image: "https://images.unsplash.com/photo-1604414808347-b1b9b25c5099?auto=format&fit=crop&w=400&q=80"
+                    price: "35 MAD",
+                    image: "images/scotch.jpg"
                 },
                 {
-                    title: "Sous-couche Acrylique 5L",
-                    description: "Fixateur universel pour tous supports",
-                    price: "180 MAD",
-                    image: "https://images.unsplash.com/photo-1604414808347-b1b9b25c5099?auto=format&fit=crop&w=400&q=80"
+                    title: "Peinture Décoratif",
+                    description: "Peinture décoratif 5Kg, 20Kg",
+                    price: "600 MAD",
+                    image: "images/peinture.jpg"
                 }
             ],
             quincaillerie: [
                 {
-                    title: "Visserie Complète 300pcs",
-                    description: "Boîte assortie de vis et chevilles",
-                    price: "150 MAD",
-                    image: "https://images.unsplash.com/photo-1604414808347-b1b9b25c5099?auto=format&fit=crop&w=400&q=80",
+                    title: "Visserie Complète 200pcs",
+                    description: "Boîtes assortie de vis et chevilles",
+                    price: "0 MAD",
+                    image: "images/vis.jpg",
                     badge: "Essentiel"
                 },
                 {
                     title: "Serrure 3 Points",
                     description: "Serrure de sécurité pour porte d'entrée",
-                    price: "580 MAD",
-                    image: "https://images.unsplash.com/photo-1604414808347-b1b9b25c5099?auto=format&fit=crop&w=400&q=80"
+                    price: "0 MAD",
+                    image: "images/serrure.jpg"
                 },
                 {
-                    title: "Gonds Porte 4pcs",
-                    description: "Gonds renforcés 100mm avec visserie",
+                    title: "Gonds Porte",
+                    description: "Gonds renforcés avec visserie",
                     price: "45 MAD",
-                    image: "https://images.unsplash.com/photo-1604414808347-b1b9b25c5099?auto=format&fit=crop&w=400&q=80"
+                    image: "images/charniere.jpg"
                 },
                 {
                     title: "Ferme-porte Hydraulique",
                     description: "Pour porte jusqu'à 80kg, finition aluminium",
-                    price: "220 MAD",
-                    image: "https://images.unsplash.com/photo-1604414808347-b1b9b25c5099?auto=format&fit=crop&w=400&q=80"
+                    price: "350 MAD",
+                    image: "images/ferme.jpg"
                 }
             ]
         };
