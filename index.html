@@ -671,6 +671,101 @@
                 justify-content: center;
             }
         }
+        /* Ajoutez ces règles dans vos styles existants */
+
+/* Header amélioré pour mobile */
+@media (max-width: 768px) {
+    /* Réduction de la hauteur totale du header */
+    .header-top {
+        padding: 6px 0;
+        font-size: 12px;
+    }
+    
+    .header-main {
+        padding: 10px 0;
+    }
+    
+    /* Réorganisation des éléments */
+    .header-main .container {
+        flex-direction: column;
+        gap: 12px;
+        padding: 0 10px;
+    }
+    
+    /* Ajustement du logo pour mobile */
+    .logo {
+        font-size: 24px;
+    }
+    
+    .logo i {
+        font-size: 30px;
+    }
+    
+    /* Menu responsive - adaptation pour mobile */
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        padding: 10px 0;
+    }
+    
+    nav li {
+        text-align: center;
+    }
+    
+    /* Ajustement du menu de contact */
+    .contact-header {
+        gap: 15px;
+    }
+    
+    .contact-header a {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+    
+    /* Pour les très petits écrans */
+    @media (max-width: 480px) {
+        .header-top .container div {
+            font-size: 10px;
+            padding: 2px 0;
+        }
+        
+        .logo {
+            font-size: 20px;
+        }
+        
+        .logo i {
+            font-size: 26px;
+        }
+        
+        nav ul {
+            gap: 8px;
+        }
+        
+        nav a {
+            font-size: 13px;
+        }
+    }
+}
+
+/* Correction de l'overflow horizontal */
+body {
+    overflow-x: hidden;
+}
+
+/* Ajustement pour les très petits écrans */
+@media (max-width: 375px) {
+    .header-top .container {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .header-top .container div {
+        display: flex;
+        justify-content: center;
+    }
+}
+
     </style>
 </head>
 <body>
