@@ -671,7 +671,6 @@
                 justify-content: center;
             }
         }
-        /* Ajoutez ces règles dans vos styles existants */
 
 /* Header amélioré pour mobile */
 @media (max-width: 768px) {
@@ -765,6 +764,30 @@ body {
         justify-content: center;
     }
 }
+        /* Masquer entièrement le header sur mobile */
+@media (max-width: 768px) {
+    header {
+        display: none !important;
+        height: 0 !important;
+    }
+    
+    /* Corriger l'espace en haut du site */
+    body {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+    }
+    
+    /* Corriger l'espace après le header */
+    .hero-slider {
+        margin-top: 0 !important;
+    }
+    
+    /* Ajuster le contenu principal */
+    .container {
+        padding-top: 0 !important;
+    }
+}
+
 
     </style>
 </head>
