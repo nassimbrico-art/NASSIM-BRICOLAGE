@@ -10,6 +10,194 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        /* Styles pour le slider amélioré */
+.hero-slider {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.9);
+}
+
+.slide-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.slide-content-inner {
+    max-width: 700px;
+    padding: 30px;
+    text-align: center;
+    color: var(--light);
+    animation: fadeIn 0.6s ease;
+}
+
+.slide h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-weight: 800;
+    color: var(--light);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.slide p {
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    color: #ddd;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* Contrôles du slider */
+.slider-controls {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    z-index: 10;
+}
+
+.slider-prev,
+.slider-next {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1.2rem;
+}
+
+.slider-prev:hover,
+.slider-next:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+.slider-dots {
+    display: flex;
+    gap: 10px;
+}
+
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.slider-dot.active {
+    background: var(--primary);
+    transform: scale(1.3);
+}
+
+/* Animation de fade-in */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-slide {
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .slide h1 {
+        font-size: 2.5rem;
+    }
+    
+    .slide p {
+        font-size: 1.2rem;
+    }
+    
+    .slide-content-inner {
+        max-width: 90%;
+        padding: 20px;
+    }
+    
+    .btn-primary {
+        font-size: 1rem;
+        padding: 12px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide h1 {
+        font-size: 2rem;
+    }
+    
+    .slide p {
+        font-size: 1rem;
+    }
+    
+    .slide-content-inner {
+        padding: 15px;
+    }
+}
+
         :root {
             --primary: #e75f0c;
             --primary-dark: #c94c00;
@@ -824,49 +1012,60 @@ body {
         </div>
     </header>
 
-  <section class="hero-slider" id="accueil">
+ <!-- Section slider amélioré -->
+<section class="hero-slider" id="accueil">
+    <!-- Slide 1 -->
     <div class="slide active">
+        <div class="slide-background" style="background-image: url('images/slide1.jpg');"></div>
         <div class="slide-content">
-            <h1>Le Meilleur Service de Bricolage au Maroc</h1>
-            <p>Plus de 15 ans d'expertise au service des professionnels et particuliers</p>
-            <a href="#categories" class="btn-primary">Découvrir nos produits</a>
-        </div>
-        <div class="slide-image">
-            <div class="slide-overlay"></div>
-            <img src="images/slide1.jpg" alt="Bricolage professionnel">
+            <div class="slide-content-inner">
+                <h1 class="animate-slide">Le Meilleur Service de Bricolage au Maroc</h1>
+                <p class="animate-slide" style="animation-delay: 0.2s;">Plus de 15 ans d'expertise au service des professionnels et particuliers</p>
+                <a href="#categories" class="btn-primary animate-slide" style="animation-delay: 0.4s;">Découvrir nos produits</a>
+            </div>
         </div>
     </div>
 
+    <!-- Slide 2 -->
     <div class="slide">
+        <div class="slide-background" style="background-image: url('images/slide2.jpg');"></div>
         <div class="slide-content">
-            <h1>Livraison Rapide Partout au Maroc</h1>
-            <p>De Tanger à Dakhla, nous livrons en 24-48h avec notre flotte de véhicules spécialisés</p>
-            <a href="#contact" class="btn-primary">Nous contacter</a>
-        </div>
-        <div class="slide-image">
-            <div class="slide-overlay"></div>
-            <img src="images/slide2.jpg" alt="Livraison">
+            <div class="slide-content-inner">
+                <h1 class="animate-slide">Livraison Rapide Partout au Maroc</h1>
+                <p class="animate-slide" style="animation-delay: 0.2s;">De Tanger à Dakhla, nous livrons en 24-48h avec notre flotte de véhicules spécialisés</p>
+                <a href="#contact" class="btn-primary animate-slide" style="animation-delay: 0.4s;">Nous contacter</a>
+            </div>
         </div>
     </div>
 
+    <!-- Slide 3 -->
     <div class="slide">
+        <div class="slide-background" style="background-image: url('images/slide3.jpg');"></div>
         <div class="slide-content">
-            <h1>Fiabilité & Qualité Garanties</h1>
-            <p>Produits certifiés, garanties satisfait ou remboursé, plus de 10 000 clients satisfaits</p>
-            <a href="#services" class="btn-primary">Nos engagements</a>
-        </div>
-        <div class="slide-image">
-            <div class="slide-overlay"></div>
-            <img src="images/slide3.jpg" alt="Qualité">
+            <div class="slide-content-inner">
+                <h1 class="animate-slide">Fiabilité & Qualité Garanties</h1>
+                <p class="animate-slide" style="animation-delay: 0.2s;">Produits certifiés, garanties satisfait ou remboursé, plus de 10 000 clients satisfaits</p>
+                <a href="#services" class="btn-primary animate-slide" style="animation-delay: 0.4s;">Nos engagements</a>
+            </div>
         </div>
     </div>
 
-    <div class="slider-nav">
-        <div class="slider-dot active"></div>
-        <div class="slider-dot"></div>
-        <div class="slider-dot"></div>
+    <!-- Contrôles du slider -->
+    <div class="slider-controls">
+        <button class="slider-prev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="slider-dots">
+            <span class="slider-dot active"></span>
+            <span class="slider-dot"></span>
+            <span class="slider-dot"></span>
+        </div>
+        <button class="slider-next">
+            <i class="fas fa-chevron-right"></i>
+        </button>
     </div>
 </section>
+
 
     <!-- Services Section -->
     <section class="services-section" id="services">
